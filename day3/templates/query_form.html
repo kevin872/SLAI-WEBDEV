@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Encyclopedia</title>
+    <!-- <link rel="stylesheet" href="../static/styles.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
+</head>
+
+<body>
+    <h1>Pokemon Encyclopedia</h1>
+    <form action="/" method="post">
+        <section>
+            <aside>
+                <label for="select_type">Select Type</label>
+                <select id="select_type" name="type">
+                    {% for type in types %}
+                    <option value="{{type}}">{{ type }}</option>
+                    {% endfor %}
+                </select>
+                <label for="check_legendary">Legendary Pokemon Only</label>
+                <input type="checkbox", id="check_legendary", name="legendary">
+            </aside>
+            <aside>
+                <label for="HP">HP Points</label>
+                <div>
+                    <label for="min_HP">Min</label>
+                    <input type="number", id="min_HP", name="min_HP", min="0", max="1000">
+                    <label for="max_HP">Max</label>
+                    <input type="number", id="max_HP", name="max_HP", min="0", max="1000">
+                </div>
+            </aside>
+            <input type="submit" value="Submit query" id="button_query">
+        </section>
+    </form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Encyclopedia</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/mvp.css">  -->
+</head>
+
+<body>
+    <h1>Pokemon Encyclopedia</h1>
+    <table>
+        <thead>
+            {% for field in data[0] %}
+            <th> {{field}} </th>
+            {% endfor %}
+        </thead>
+        <tbody>
+            {% for pokemon in data %}
+            <tr>
+                {% for key, value in pokemon.items() %}
+                {% if key == "Name" %}
+                <td>
+                    <a href="https://pokemondb.net/pokedex/{{ pokemon['Name'] }}">{{ value }}</a>
+                </td>
+                {% else %}
+                <td>
+                    {{ value }}
+                </td>
+                {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
